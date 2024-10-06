@@ -13,6 +13,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>spring-professional</name>
   <description>spring-professional</description>
+  <packaging>pom</packaging>
   <url/>
   <licenses>
     <license/>
@@ -26,6 +27,11 @@
     <tag/>
     <url/>
   </scm>
+  <modules>
+    <module>lecon1_1</module>
+    <module>lecon1_1_springframework</module>
+    <module>lecon1_2</module>
+  </modules>
   <properties>
     <java.version>21</java.version>
   </properties>
