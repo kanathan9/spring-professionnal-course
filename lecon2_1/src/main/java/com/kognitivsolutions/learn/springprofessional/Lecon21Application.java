@@ -10,7 +10,6 @@ public class Lecon21Application {
     SpringApplication.run(Lecon21Application.class, args);
   }
 /*** TODO
- * Cycle de vie des beans
  * LECON 2_2
  * Les annotations
  * Qualifiers et Primary
