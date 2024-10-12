@@ -1,9 +1,11 @@
 package com.kognitivsolutions.learn.springprofessional.beans;
 
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import java.util.Random;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -19,6 +21,7 @@ public class PrototypeBeanInitilisation implements InitializingBean {
     this.randomInt = 10;
     logger.info("Running @PostContruct method.");
   }
+
   public int getRandomInt() {
     return randomInt;
   }

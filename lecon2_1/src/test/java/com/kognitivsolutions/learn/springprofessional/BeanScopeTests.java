@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class BeanScopeTests {
@@ -42,7 +43,7 @@ public class BeanScopeTests {
 
   @Test
   void prototypeBeanInitilisationTest(){
-    ApplicationContext applicationContext = new AnnotationConfigApplicationContext(Lecon21Application.class);
+    ConfigurableApplicationContext applicationContext = new AnnotationConfigApplicationContext(Lecon21Application.class);
     PrototypeBeanInitilisation prototypeBean1 = applicationContext.getBean(PrototypeBeanInitilisation.class);
     PrototypeBeanInitilisation prototypeBean2 = applicationContext.getBean(PrototypeBeanInitilisation.class);
     PrototypeBeanInitilisation prototypeBean3 = applicationContext.getBean(PrototypeBeanInitilisation.class);
@@ -52,5 +53,15 @@ public class BeanScopeTests {
     logger.info("Bean3 random int={}", prototypeBean3.getRandomInt());
 
     Assertions.assertNotEquals(prototypeBean1, prototypeBean2);
+  }
+
+  @Test
+  void singletonBeanDestroyTest(){
+    ConfigurableApplicationContext applicationContext = new AnnotationConfigApplicationContext(Lecon21Application.class);
+    SingletonBean singletonBean1 = applicationContext.getBean(SingletonBean.class);
+
+    logger.info("Bean1 random int={}", singletonBean1.getRandomInt());
+
+    applicationContext.close();
   }
 }
